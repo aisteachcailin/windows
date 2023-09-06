@@ -1,0 +1,35 @@
+import Swiper from 'swiper';
+import { Navigation, Pagination } from 'swiper/modules';
+// import Swiper and modules styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+
+const swiper = new Swiper('.swiper', {
+    modules: [Navigation, Pagination],
+    direction: 'horizontal',
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    spaceBetween: 20,
+    slidesPerView: 4,
+    breakpoints: {
+        // 320: {
+        // slidesPerView: 2
+        // },
+        // 768: {
+        // slidesPerView: 3
+        // },
+        // 1280: {
+        // slidesPerView: 4
+        // }
+    }
+});
+
+export default swiper;
