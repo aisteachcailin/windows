@@ -16,14 +16,20 @@
           <header class="header">
             <a href="#about" class="header__link">О НАС</a>
             <a href="#works" class="header__link">РАБОТЫ</a>
-            <a href="#footer" class="header__link">КОНТАКТЫ</a>          
+            <a href="#contacts" class="header__link">КОНТАКТЫ</a>  
+            <img class="header__menu" src="images/icons/burger.png" alt="img">  
+            <ul class="menu">
+              <li class="menu__item"><a href="#about">О НАС</a></li>
+              <li class="menu__item"><a href="#works">РАБОТЫ</a></li>
+              <li class="menu__item"><a href="#contacts">КОНТАКТЫ</a></li>
+            </ul>      
           </header>
           <h1 class="main__title">МЯГКИЕ<br>ОКНА</h1>
           <div class="main__subtitle">Качественная защита от ветра и дождя для террас, беседок, веранд, теплиц балконов, лоджий, уличных кафе, павильонов, складов.</div>
           <a class="main__request" href="#request">ОСТАВИТЬ ЗАЯВКУ</a>
         </div>
       </div>
-      <div class="about">
+      <div class="about" id="about">
         <div class="container">
           <div class="logo-title">
             <h2 class="about__title">Что такое мягкие окна и чем они хороши?</h2>
@@ -72,7 +78,7 @@
           </div>
         </div>
       </div>
-      <div class="works">
+      <div class="works" id="works">
         <div class="container">
           <h2 class="works__title">Работы</h2>
           <div class="swiper">
@@ -152,43 +158,73 @@
       </div>
       <div class="steps">
         <div class="container">
-          <h1 class="steps__title">Всего четыре шага до мягких окон у вас на участке!</h1>
           <div class="steps__item">
-            <h2 class="steps__name">ЗАЯВКА НА САЙТЕ</h2>
+            <a class="steps__name steps__name--link" href="#request">ЗАЯВКА НА САЙТЕ</a>
             <p class="steps__text">Свяжемся с вами в ближайшее время!</p>
           </div>
           <div class="steps__item">
             <h2 class="steps__name">ВЫЕЗД ЗАМЕРЩИКА</h2>
             <p class="steps__text">В любой день и время (даже в праздники и выходные) сделаем бесплатные замеры и предложим лучшие варианты.</p>
           </div>
-          <div class="steps__item">
-            <h2 class="steps__name">ПРОИЗВОДСТВО В КРАТЧАЙШИЕ СРОКИ</h2>
-            <p class="steps__text">Изготовим мягкие окна по размерам построек и требованиям заказчика.</p>
-          </div>
-          <div class="steps__item">
-            <h2 class="steps__name">УСТАНОВКА</h2>
-            <p class="steps__text">Гарантируем качественный монтаж любой сложности, формы и метража.</p>
-          </div>
+          <h1 class="steps__title">Всего четыре шага<br>до мягких окон<br>у вас на участке!</h1>
+            <div class="steps__item">
+              <h2 class="steps__name">ПРОИЗВОДСТВО В КРАТЧАЙШИЕ СРОКИ</h2>
+              <p class="steps__text">Изготовим мягкие окна по размерам построек и требованиям заказчика.</p>
+            </div>
+            <div class="steps__item">
+              <h2 class="steps__name">УСТАНОВКА</h2>
+              <p class="steps__text">Гарантируем качественный монтаж любой сложности, формы и метража.</p>
+            </div>
         </div>
       </div>
       <div class="properties">
         <div class="container">
-        
+          <div class="logo-title">
+            <h2 class="properties__title">Свойства ПВХ плёнки</h2>
+            <img class="properties__logo logo" src="images/logo.svg" alt="img">
+          </div>
+          <ul class="properties__list">
+            <li class="properties__list__item"><img class="icon" src="images/icons/mark.svg" alt="img">прозрачность SUPER CLEAR</li>
+            <li class="properties__list__item"><img class="icon" src="images/icons/mark.svg" alt="img">эластичность</li>
+            <li class="properties__list__item"><img class="icon" src="images/icons/mark.svg" alt="img">устойчивость к воздействиям внешней среды</li>
+            <li class="properties__list__item"><img class="icon" src="images/icons/mark.svg" alt="img">герметичность</li>
+            <li class="properties__list__item"><img class="icon" src="images/icons/mark.svg" alt="img">высокая прочность на разрыв</li>
+            <li class="properties__list__item"><img class="icon" src="images/icons/mark.svg" alt="img">идеальная защита от осадков и насекомых</li>
+          </ul>
         </div>
       </div>
       <div class="conclusion">
         <div class="container">
-        
+          <p class="conclusion__text">
+            Окна из ПВХ пользуются высоким спросом. Рулонные шторы многофункциональны и прекрасно вписываются в экстерьер – многие именно поэтому предпочитают устанавливать такие конструкции на своих верандах и беседках.
+            <br>Наши мягкие окна - отличная альтернатива застеклению и решение проблем многих обладателей беседок, дизайнерских веранд, террас, искусно выполненных балконов из различных строительных материалов. Мягкие шторы для беседок и веранд спасут положение, надежно защитят ваш дом от непогоды и создадут уютную атмосферу. Большой опыт работы дает нам возможность выполнять работу «под ключ» на объектах любой сложности.
+            <br><br>
+            Наши клиенты всегда довольны результатом и рекомендуют нас друзьям!
+          </p>
         </div>
       </div>
-      <div class="request">
+      <div class="request" id="request">
         <div class="container">
-        
+        <h1 class="request__title">Оставить заявку</h1>
+        <form class="form" action="thanks.html" method="POST">
+          <input class="request__input" name="name" type="text" placeholder="Имя" pattern="^[A-Za-zА-Яа-яЁё\s]+$" required>
+          <input class="request__input" name="phone" type="text" placeholder="Телефон" pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" required>
+          <input class="request__input" name="message" type="text" placeholder="Сообщение" required>
+          <input class="request__button" type="submit" value="Отправить">
+        </form>
         </div>
       </div>
       <div class="footer">
         <div class="container">
-        
+          <img class="footer__logo logo" src="images/logo.svg" alt="img">
+          <div class="contacts" id="contacts">
+            <div class="contacts-phones">
+              <a class="contacts__item" href="tel:+79527800800"><img class="icon" src="images/icons/phone.svg" alt="img">+7 (952) 7-800-800</a>
+              <a class="contacts__item" href="tel:+79202981005"><img class="icon" src="images/icons/phone.svg" alt="img">+7 (920) 2-981-005</a>
+            </div>
+            <a class="contacts__item" href="mailto:dmitrya.tsaregorodtsev@gmail.com"><img class="icon" src="images/icons/mail.svg" alt="img">dmitrya.tsaregorodtsev@gmail.com</a>
+            <p class="contacts__item"><img class="icon" src="images/icons/address.svg" alt="img">Нижний новгород, пос.Черепичный 3В</p>
+          </div>
         </div>
       </div>
     </div> 

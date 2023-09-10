@@ -2,18 +2,19 @@ $white: #fff;
 $grey: #484444;
 $light-grey: rgba(159, 148, 150, 0.58);
 
-@mixin button {
+@mixin button($p, $w, $fs) {
     color: $white;
-    font-size: 16px;
-    padding: 20px;
+    font-size: $fs;
+    padding: $p;
     text-align: center;
-    width: 250px;
+    width: $w;
     display: block;
     border: 3px solid $white;
-        &:hover {
+    text-transform: uppercase;
+    background: transparent;
+        &:hover, &:focus {
             transition: 0.2s;
-            color: lighten($light-grey, 50%);
-            border: 3px solid lighten($light-grey, 50%);
+            opacity: 0.7;
         }
 }
 
@@ -21,18 +22,22 @@ $light-grey: rgba(159, 148, 150, 0.58);
     font-weight: 700;
     font-size: 26px;
     color: $color;
-    padding: 30px 0;
+    padding: 60px 0 30px;
 }
 
-@mixin light-block($max-width) {
+@mixin light-block($max-width, $radius, $padding, $line-height) {
     background-color: $light-grey;
-    border-radius: 30px;
-    padding: 20px;  
+    border-radius: $radius;
+    padding: $padding;  
     max-width: $max-width;
     color: #fff;
-    line-height: 25px;
+    line-height: $line-height;
     font-size: 16px;
     box-shadow: 0 10px 40px rgb(72 68 68 / 20%);
+}
+
+@mixin padding-block {
+    padding: 60px 0;
 }
 
 * {
@@ -62,15 +67,24 @@ hr {
     color: $grey;
 }
 
+input {
+    outline: none;
+}
+
 .logo {
     width: 180px;
+    display: block;
+}
+
+.icon {
+    width: 25px;
+    height: 25px;
 }
 
 .logo-title {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 20px;
 }
 
 .main {
@@ -82,14 +96,14 @@ hr {
             font-weight: 400;
             margin-top: 100px;
             font-size: 60px;
+            text-transform: uppercase;
         }
         &__subtitle {
-            @include light-block(600px);
             margin-top: 30px;
         }
         &__request {
             margin: 140px 0 0 auto;
-            @include button;
+            @include button(20px, 250px, 16px);
         }
 }
 
@@ -103,6 +117,7 @@ hr {
         font-weight: 500;
         position: relative;
         display: block;
+        text-transform: uppercase;
 
         &:before {
             content: '';
@@ -129,7 +144,7 @@ hr {
     }
     &__text {
         font-weight: 500;
-        font-size: 18px;
+        font-size: 16px;
         line-height: 30px;
 
         &--first {
@@ -169,8 +184,15 @@ hr {
     &__descr {
         font-weight: 500;
         line-height: 30px;
-        font-size: 14px;
+        font-size: 16px;
     }
+}
+
+.fancybox__content {
+    padding: 0 !important;
+}
+img.slide-modal__img {
+    width: 100%;
 }
 
 .works {
@@ -210,7 +232,7 @@ hr {
         }
     }
     .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
-        top: 300px;
+        top: 320px;
     }
     .works .swiper-pagination-bullet {
         background-color: $light-grey;
@@ -230,15 +252,441 @@ hr {
 .steps {
     background: url(/images/steps.jpg) no-repeat;
     background-size: cover;
+    background-position-y: 65%;
 
     &__title {
-        @include title($white);
+        font-size: 30px;
+        color: $white;
+        line-height: 50px;
+        position: relative;
+        text-transform: uppercase;
     }
     &__item {
-        @include light-block(600px);
         color: $white;
+        position: relative;
+    }
+    &__name {
+        font-size: 16px;
+        font-weight: 500;
+
+        &--link {
+            color: $white;
+            &:hover, &:focus {
+                text-decoration: underline;
+            }
+        }
     }
     &__text {
-        margin-top: 5px;
+        font-size: 14px;
+        margin-top: 3px;
     }
+}
+
+.properties {
+    padding-bottom: 60px;
+    &__title {
+        @include title($grey);
+    }
+    &__list__item {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 5px 0;
+        color: $grey;
+        font-weight: 500;
+        font-size: 16px;
+    }
+}
+
+.conclusion {
+    background: $light-grey;
+    color: $grey;
+    padding: 40px 0;
+
+    &__text {
+        color: $grey;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 30px;
+    }
+}
+
+.request {
+    @include padding-block;
+    background: url(images/request.jpg) no-repeat;
+    background-size: cover;
+
+
+    &__button {
+        margin-top: 20px;
+    }
+
+    &__title {
+        font-size: 26px;
+        text-align: center;
+        color: $white;
+        font-size: 32px;
+        text-transform: uppercase;
+        line-height: 50px;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        margin-top: 40px;
+    }
+
+    &__input {
+        padding: 15px 10px;
+        width: 325px;
+        border: none;
+        font-size: 14px;
+        background: #ffffffa1;
+        color: $grey;
+        font-weight: 500;
+        box-sizing: border-box;
+        height: 50px;
+
+        &::placeholder {
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: 400;
+            color: $grey;
+        }
+    }
+}
+.footer {
+    @include padding-block;
+    font-size: 14px;
+    background: $light-grey;
+    &__logo {
+        margin: 0 auto;
+    }
+    .contacts {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+
+        &-phones {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 10px;            
+        }
+        a:hover, &:focus {
+            font-weight: 500;
+        }
+
+        &__item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: $grey;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .container {
+        padding: 0 10px;
+    }
+    .logo {
+        width: 100px;
+    }
+    .icon {
+        width: 20px;
+        height: 20px;
+    }
+    .main {
+        padding: 30px 0;
+        &__subtitle {
+            @include light-block(500px, 20px, 10px, 25px)
+        }
+        &__request {
+            @include button(15px, 240px, 16px);
+            margin: 70px auto 0;
+        }
+    }
+    .header {
+        &__link {
+            display: none;
+        }
+        &__menu {
+            width: 50px;
+        }
+        .menu {
+            display: none;
+            position: absolute;
+            top: 80px;
+            border-radius: 10px;
+            background: $white;
+            padding: 20px 10px;
+            &__item {
+                padding: 10px;
+
+                a {
+                    color: $grey;
+                    font-weight: 500;
+                }
+            }
+        }
+        .open {
+            display: block;
+        }
+    }
+    .about {
+        &__title {
+            font-size: 18px;
+            padding: 30px 0 20px;
+        }
+        &__text {
+            font-size: 13px;
+            line-height: 25px;
+            &--first {
+                padding: 0 0 15px;
+            }
+            &--second {
+                padding: 15px 0 30px;
+            }
+        }
+    }
+    .steps {
+        padding-bottom: 92px;
+        &__item {
+            @include light-block(400px, 20px, 10px, 20px);
+            margin: 0 auto;
+        }
+        &__item:nth-child(1) {
+            top: 15px;
+        }
+        &__item:nth-child(2) {
+            top: 35px;
+        }
+        &__item:nth-child(4) {
+            top: 55px;
+        }
+        &__item:nth-child(5) {
+            top: 75px;
+        }
+        &__title {
+            display: none;
+        }
+        &__name {
+            font-size: 14px;
+        }
+        &__text {
+            font-size: 13px;
+        }
+    }
+    .advantages {   
+        &-part {
+            gap: 10px;
+            margin: 20px 0;
+            display: block;
+            margin: 15px 0;
+        }
+        &__item {
+            max-width: 100%;
+        }
+        &__icon {
+            width: 50px;
+        }
+        &__name {
+            font-size: 16px;
+        }
+        &__descr {
+            font-size: 14px;
+            width: 70%;
+            margin: 0 auto;
+        }
+    }
+    .works {
+        .container {
+            margin-bottom: 55px;
+        }
+        .swiper {
+            &-button-next {
+                right: 15px;
+            }
+            &-button-prev {
+                left: 15px;
+            }
+        }
+        &__title {
+            font-size: 18px;
+            padding: 15px 30px;
+        }
+        .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
+            top: 250px;
+        }
+    }
+    .properties {
+        padding-bottom: 30px;
+        &__logo {
+            display: none;
+        }
+        &__title {
+            font-size: 18px;
+            padding: 30px 0 20px;
+        }
+        &__list__item {
+            gap: 10px;
+            font-size: 14px;
+            padding: 5px 0;
+        }
+    }
+    .conclusion {
+        padding: 30px 0;
+        &__text {
+            font-size: 13px;
+            line-height: 25px;
+        }
+    }
+    .request {
+        padding: 30px 0;
+        &__title {
+            font-size: 24px;
+        }
+        .form {
+            gap: 20px;
+            margin-top: 15px;
+        }
+        &__button {
+            margin-top: 10px;
+        }
+        &__input {
+            width: 75%;
+            font-size: 12px;
+        }
+        &__button {
+            @include button(10px, 200px, 14px);
+        }
+    }
+    .footer {
+        font-size: 12px;
+        padding: 30px 0;
+
+        .contacts {
+            margin-top: 10px;
+            display: block;
+
+            &-phones {
+                gap: 0;
+            }
+            &__item {
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .menu {
+        display: none;
+    }
+    .header {
+        &__menu {
+            display: none;
+        }
+    }
+    .main {
+        &__subtitle {
+            @include light-block(600px, 30px, 20px, 25px);
+        }
+    }
+    .steps {
+        &__item {
+            @include light-block(330px, 30px, 20px, 25px);
+        }
+    }
+    .request {
+        &__button {
+            @include button(15px, 230px, 16px);
+        }
+    } 
+}    
+
+@media screen and (min-width: 768px) and (max-width: 1100px) {
+    .container {
+        padding: 0 30px;
+    }
+    .advantages {
+        &-part {
+            gap: 60px;
+        }
+        &__icon {
+            width: 60px;
+        }
+        &__name {
+            font-size: 18px;
+        }
+        &__descr {
+            font-size: 14px;
+        }
+    }
+    .works {
+        .swiper {
+            &-button-next {
+                right: 30px;
+            }
+            &-button-prev {
+                left: 30px;
+            }
+        }
+    }
+    img.slide-modal__img {
+        width: 768px;
+    }
+    .steps {
+
+        &__item:nth-child(1), &__item:nth-child(2), &__item:nth-child(4), &__item:nth-child(5) {
+            left: 370px;
+        }
+        &__item:nth-child(1) {
+            top: 55px;
+        }
+        &__item:nth-child(2) {
+            top: 75px;
+        }
+        &__item:nth-child(4) {
+            bottom: 60px;
+        }
+        &__item:nth-child(5) {
+            bottom: 45px;
+        }
+        &__title {
+            font-size: 28px;
+        }
+    }
+    .footer {
+        font-size: 12px;
+    }
+}
+
+@media screen and (min-width: 1101px) {
+    .steps {
+        padding-bottom: 15px;
+        &__item {
+            color: $white;
+            position: relative;
+            &:nth-child(1) {
+                left: 220px;
+                top: 60px;
+            }
+            &:nth-child(2) {
+                left: 370px;
+                top: 75px;
+            }
+            &:nth-child(4) {
+                left: 520px;
+                bottom: 60px;
+            }
+            &:nth-child(5) {
+                left: 670px;
+                bottom: 45px;
+            }
+        }
+    }   
 }

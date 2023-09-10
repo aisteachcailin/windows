@@ -6,3 +6,11 @@ import swiper from './slider';
 Fancybox.bind("[data-fancybox]", {
     dragToClose: false
   });
+
+  function dropdown() {
+    document.querySelector('.header__menu').addEventListener("click", () => {
+      document.querySelector('.menu').classList.toggle('open');
+    })
+  }
+
+  dropdown();

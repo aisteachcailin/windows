@@ -18,17 +18,16 @@ const swiper = new Swiper('.swiper', {
         clickable: true,
     },
     spaceBetween: 20,
-    slidesPerView: 4,
     breakpoints: {
-        // 320: {
-        // slidesPerView: 2
-        // },
-        // 768: {
-        // slidesPerView: 3
-        // },
-        // 1280: {
-        // slidesPerView: 4
-        // }
+        320: {
+        slidesPerView: 1
+        },
+        768: {
+        slidesPerView: 3
+        },
+        1110: {
+        slidesPerView: 4
+        }
     }
 });
 
