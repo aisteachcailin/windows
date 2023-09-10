@@ -493,13 +493,14 @@ img.slide-modal__img {
         }
         &__item {
             max-width: 100%;
-            margin-top: 10px;
+            margin-top: 20px;
         }
         &__icon {
-            width: 50px;
+            width: 60px;
         }
         &__name {
             font-size: 16px;
+            padding: 5px 0;
         }
         &__descr {
             font-size: 14px;
