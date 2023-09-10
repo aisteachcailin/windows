@@ -8,6 +8,7 @@ $light-grey: rgba(159, 148, 150, 0.58);
     padding: $p;
     text-align: center;
     width: $w;
+    font-weight: 500;
     display: block;
     border: 3px solid $white;
     text-transform: uppercase;
@@ -401,6 +402,9 @@ img.slide-modal__img {
     }
     .main {
         padding: 30px 0;
+        &__title {
+            font-size: 50px;
+        }
         &__subtitle {
             @include light-block(500px, 20px, 10px, 25px)
         }
@@ -489,6 +493,7 @@ img.slide-modal__img {
         }
         &__item {
             max-width: 100%;
+            margin-top: 10px;
         }
         &__icon {
             width: 50px;
