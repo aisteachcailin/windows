@@ -91,6 +91,7 @@ input {
 .main {
     background: url(/images/main.jpg) no-repeat;
     background-size: cover;
+    background-position-x: 40%;
     padding: 40px 0 60px;
         &__title {
             color: $white;
